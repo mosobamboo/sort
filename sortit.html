@@ -1,0 +1,156 @@
+
+<!-- saved from url=(0042)http://www.webhek.com/misc/comparison-sort -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="UTF-8">
+		<!--<base href="http://www.webhek.com/misc-res/comparison-sort/">--><base href=".">
+		<meta name="description" content="这是旧金山大学的David Galles教授用HTML5+js制作的数据结构动画课件中算法动画比较部分。教授利用JS+HTML5 Canvas技术分别演示了6中数学排序算法的基本原理，即介绍了数学知识，又让这种教学变得饶有兴趣。你可以看出HTML5技术将会在各个方法起到越来越重要的作用。">
+		<title>
+			用HTML5实现的各种排序算法的动画比较
+		</title>
+		
+		<!-- css sheet for how the page is laid out -->
+		
+		<link rel="stylesheet" href="./sortit_files/visualizationPageStyle.css">
+			
+			
+		<!-- jqueury stuff.  Only used for the animation speed slider. -->
+		<link rel="stylesheet" href="./sortit_files/jquery-ui-1.8.11.custom.css">
+				
+		<script async="" src="./sortit_files/analytics.js"></script><script async="" type="text/javascript" src="./sortit_files/ca-pub-9195052014444206.js"></script><script src="./sortit_files/jquery-1.5.2.min.js"></script>
+		<script src="./sortit_files/jquery-ui-1.8.11.custom.min.js"></script>
+				
+		<!-- Javascript for the actual visualization code -->
+		<script type="application/javascript" src="./sortit_files/CustomEvents.js"> </script>
+		<script type="application/javascript" src="./sortit_files/UndoFunctions.js"> </script>
+		<script type="application/javascript" src="./sortit_files/AnimatedObject.js"> </script>
+		<script type="application/javascript" src="./sortit_files/AnimatedLabel.js"> </script>
+		<script type="application/javascript" src="./sortit_files/AnimatedCircle.js"> </script>
+		<script type="application/javascript" src="./sortit_files/AnimatedRectangle.js"> </script>
+		<script type="application/javascript" src="./sortit_files/AnimatedLinkedList.js"> </script>
+		<script type="application/javascript" src="./sortit_files/HighlightCircle.js"> </script>
+		<script type="application/javascript" src="./sortit_files/Line.js"> </script>
+		<script type="application/javascript" src="./sortit_files/ObjectManager.js"> </script>
+		<script type="application/javascript" src="./sortit_files/AnimationMain.js"> </script>
+		<script type="application/javascript" src="./sortit_files/Algorithm.js"> </script>
+		<script type="application/javascript" src="./sortit_files/ComparisonSort.js"> </script> 
+				
+			
+	 <script charset="utf-8" src="./sortit_files/shorten.json"></script></head> 
+	
+	<body class="VisualizationMainPage">
+		
+		<div id="container">
+			
+			<div id="header">  
+				<h1 style=" display: inline-block;">用HTML5实现的各种排序算法的动画比较</h1>
+				<div style="float:right; margin: 15px;">    <style type="text/css">
+.Qg{height: 30px;width: 250px;}
+.iI {
+    background: url(/misc-res/images/share.png) no-repeat scroll 0px 0px rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 16px;
+    margin-bottom: 3px;
+    vertical-align: middle;
+    width: 16px;
+}
+.jI {
+    margin-left: 2px;
+    color: #000000;
+}
+
+.Dg {
+    background-color: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    margin-left: 8px;
+    outline: medium none;
+    padding: 0 10px;
+    transition: background-color 0.218s ease 0s, border-color 0.218s ease 0s, box-shadow 0.218s ease 0s;
+    width: auto;
+}.RF {
+     display: block;
+    position: relative;
+    height: 28px;
+    overflow: hidden;
+    white-space: nowrap;
+  float: left;
+    border-radius: 0 0 3px;
+    line-height: 30px;
+    outline: medium none;
+    overflow: hidden;
+    padding-left: 7px;
+    padding-right: 16px;
+}
+.IH {
+    display: inline-block;
+    max-width: 200px;
+}.JH {
+    display: inline-block;
+    margin-right: 4px;
+    margin-top: 1px;
+}
+.ho {
+    border-radius: 2px;
+}
+    </style>
+    <div class="Qg">
+      <div class="Dg"><span class="tf"><span class="iI"></span><span class="MM jI">501</span></span></div>
+      <div class="RF a-share">
+        <div class="IH"><a href="javascript:;" onclick="w(&#39;tsina&#39;)"><img class="ho JH HM" title="分享到新浪微博" alt="分享到新浪微博" src="./sortit_files/tsina.png"></a></div>
+        <div class="IH"><a href="javascript:;" onclick="w(&#39;tqq&#39;)"><img class="ho JH HM" title="分享到QQ空间" alt="分享到QQ空间" src="./sortit_files/qzone.png"></a></div>
+        <div class="IH"><a href="javascript:;" onclick="w(&#39;facebook&#39;)"><img class="ho JH HM" title="分享到Facebook" alt="分享到Facebook" src="./sortit_files/facebook.png"></a></div>
+        <div class="IH"><a href="javascript:;" onclick="w(&#39;twitter&#39;)"><img class="ho JH HM" title="分享到Twitter" alt="分享到Twitter" src="./sortit_files/twitter.png"></a></div>
+      </div>
+    </div></div>
+				<div style=" display: block;">
+					<script async="" src="./sortit_files/adsbygoogle.js"></script>
+					<!-- sort1 -->
+					<ins class="adsbygoogle" style="display:inline-block;width:728px;height:15px" data-ad-client="ca-pub-9195052014444206" data-ad-slot="7823834197" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:15px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe width="728" height="15" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins></ins>
+					<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
+			</div>
+			
+			<div =="" id="mainContent"> 
+				
+				<div id="algoControlSection">
+					<!-- Table for buttons to control specific animation (insert/find/etc) -->
+					<!-- (filled in by javascript code specific to the animtion) -->
+					<table id="AlgorithmSpecificControls"> <td><input type="Button" value="混排队列" name="混排队列" disabled=""></td><td><input type="Button" value="插入排序" name="插入排序" disabled=""></td><td><input type="Button" value="选择排序" name="选择排序" disabled=""></td><td><input type="Button" value="冒泡排序" name="冒泡排序" disabled=""></td><td><input type="Button" value="快速排序" name="快速排序" disabled=""></td><td><input type="Button" value="归并排序" name="归并排序" disabled=""></td><td><input type="Button" value="希尔排序" name="希尔排序" disabled=""></td><td><input type="Button" value="调整队列大小" name="调整队列大小" disabled=""></td></table> 
+				</div>
+				
+					<!-- Drawing canvas where all animation is done.  Note:  can be resized in code -->
+									
+				<canvas id="canvas" width="1000" height="500"></canvas>
+				
+				<div id="generalAnimationControlSection">
+					<!-- Table for buttons to control general animation (play/pause/undo/etc) ->
+					<!-- (filled in by javascript code, specifically AnimationMain.js)  -->
+
+					<table id="GeneralAnimationControls">  <td><input type="Button" value="跳回最初"></td><td><input type="Button" value="后退一步"></td><td><input type="Button" value="play"></td><td><input type="Button" value="向前一步"></td><td><input type="Button" value="跳到最后"></td><td><table><tr><td><div display="inline-block" float="left" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" style="width:200px"><a href="http://www.webhek.com/misc-res/comparison-sort/#" class="ui-slider-handle ui-state-default ui-corner-all" style="left: 53%;"></a></div></td></tr><tr><td align="center">动画速度</td></tr></table></td><td> 宽:</td><td><input type="Text" value="1000" size="4"></td><td>       高:</td><td><input type="Text" value="500" size="4"></td><td><input type="Button" value="调整画布大小"></td></table>		
+				</div>
+				
+			</div> <!-- mainContent -->
+			
+			<div id="footer">  
+				<p></p>
+			</div>
+
+		</div><!-- container -->
+
+		<script type="text/javascript">init();</script>
+		<script src="./sortit_files/util.js"></script>
+<a style="display:none" href="http://www.webhek.com/">webhek</a> <script src="./sortit_files/ga.js"></script><script>var shares_wb = 385;</script><script src="./sortit_files/wb.js"></script>
+	
+
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+
+ Served from: www.webhek.com @ 2015-10-15 15:09:14 by W3 Total Cache --></body></html>

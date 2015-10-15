@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        var elements = [12,3,1,9,16,0,22,5,7];
+
+        console.log(bubbleSort(elements));
+
+        function bubbleSort(arrays){
+            var result = [];
+            for(var i=0;i<arrays.length;i++){
+                var wrestler =arrays[i];
+
+                //challengers
+                for(var j=i+1;j<arrays.length;j++){
+                    if(wrestler<arrays[j]){
+                        var strongHolder = arrays[j];
+                        arrays[j] = wrestler;
+                        wrestler = strongHolder;
+                    }
+                }
+                result.push(wrestler);
+            }
+            return result;
+        }
+
+    </script>
+
+</head>
+<body>
+
+<div style="width: 600px;margin:auto;">
+    <pre>
+
+    </pre>
+</div>
+</body>
+</html>
